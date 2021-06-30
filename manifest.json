@@ -4,16 +4,11 @@
     "manifest_version": 2,
     "description": "See late stories on jira board",
     "background": {
-      "scripts": [
-        "js/background.js"
-      ],
-      "persistent": true
+        "scripts": ["js/background.js"],
+        "persistent": true
     },
     "browser_action": {
-      "default_title": "Jira Late Stories on board"
+        "default_title": "Jira Late Stories on board"
     },
-    "permissions": [
-        "contextMenus",
-         "activeTab"
-    ]
-  }
+    "permissions": ["contextMenus", "activeTab"]
+}
