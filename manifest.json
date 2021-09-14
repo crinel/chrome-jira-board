@@ -1,6 +1,6 @@
 {
     "name": "Jira Late Stories on board",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "manifest_version": 2,
     "description": "See late stories on jira board",
     "background": {
@@ -10,5 +10,5 @@
     "browser_action": {
         "default_title": "Jira Late Stories on board"
     },
-    "permissions": ["contextMenus", "activeTab"]
+    "permissions": ["contextMenus", "activeTab", "storage"]
 }

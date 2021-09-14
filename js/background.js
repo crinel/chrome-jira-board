@@ -2,21 +2,42 @@ var contextMenus = {};
 
 contextMenus.createJiraLateStories = chrome.contextMenus.create(
     {
-        "title": "Jira Late Stories on board"
-    }, 
-    function(){
-        if(chrome.runtime.lastError){
+        title: "Jira Late Stories on Board",
+        id: "jiraStories"
+    },
+    function () {
+        if (chrome.runtime.lastError) {
             console.error(chrome.runtime.lastError.message);
         }
     }
-    );
+);
 
+chrome.contextMenus.create({
+    title: "View highlights",
+    id: "view",
+    parentId: contextMenus.createJiraLateStories
+});
+chrome.contextMenus.create({
+    title: "Settings",
+    id: "settings",
+    parentId: contextMenus.createJiraLateStories
+});
 
-function contextMenuHandler(info, tab){
-    if(info.menuItemId === contextMenus.createJiraLateStories){
-        chrome.tabs.executeScript({
-            file: "js/jiraLateStories.js"
-        })
+function contextMenuHandler(info, tab) {
+    switch (info.menuItemId) {
+        case "view": {
+            chrome.tabs.executeScript({
+                file: "js/jiraLateStories.js"
+            });
+            break;
+        }
+        case "settings": {
+            chrome.tabs.executeScript({
+                file: "js/settings.js"
+            });
+            break;
+        }
     }
 }
+
 chrome.contextMenus.onClicked.addListener(contextMenuHandler);
