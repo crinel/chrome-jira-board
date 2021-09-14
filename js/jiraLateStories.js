@@ -1,21 +1,16 @@
-var shodtMonthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+var shortMonthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
-var getDaysArray = function (start, end) {
+function getDaysArray(start, end) {
     for (var arr = [], dt = new Date(start); dt <= end; dt.setDate(dt.getDate() + 1)) {
         var d = new Date(dt);
         var y = d.getFullYear().toString().substr(2);
         var day = d.getDate().toString().length === 1 ? "0" + d.getDate().toString() : d.getDate().toString();
-        arr.unshift(day + "/" + shodtMonthNames[d.getMonth()] + "/" + y);
+        arr.unshift(day + "/" + shortMonthNames[d.getMonth()] + "/" + y);
     }
     return arr;
-};
+}
 
-var daylist = getDaysArray(new Date("2021-06-21"), new Date());
-//console.log("days list ", daylist);
-
-setTimeout(function () {
-    // console.log("days list ", daylist);
-
+function viewStories(daylist) {
     var prioColors = [];
     prioColors[3] = "rgba(241, 148, 138, 0.4)";
     prioColors[2] = "rgba(240, 178, 122, 0.4)";
@@ -83,4 +78,22 @@ setTimeout(function () {
             //item.style.fontWeight = "bold"
         });
     }
-}, 100);
+}
+
+chrome.storage.sync.get(["sprintStartDate", "boardUrl"], function (result) {
+    if (!result.boardUrl) {
+        alert("Go to Settings first time.");
+        return;
+    }
+    if (window.location.href !== result.boardUrl) {
+        console.info("location", window.location.href);
+        window.open(result.boardUrl);
+        return;
+    }
+
+    setTimeout(() => {
+        const sprintStartDate = result.sprintStartDate || new Date().toISOString().split("T")[0];
+        const days = getDaysArray(new Date(sprintStartDate), new Date());
+        viewStories(days);
+    }, 100);
+});
