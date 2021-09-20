@@ -13,12 +13,12 @@ contextMenus.createJiraLateStories = chrome.contextMenus.create(
 );
 
 chrome.contextMenus.create({
-    title: "View highlights",
+    title: "🟨 View highlights",
     id: "view",
     parentId: contextMenus.createJiraLateStories
 });
 chrome.contextMenus.create({
-    title: "Settings",
+    title: "🛠 Settings",
     id: "settings",
     parentId: contextMenus.createJiraLateStories
 });
