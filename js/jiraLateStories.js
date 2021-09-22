@@ -46,7 +46,7 @@ function viewStories(daylist) {
                 if (dueDate) {
                     if (dueDate.innerText !== "None" && dueDate.innerText !== undefined) {
                         var status = extrafields[0] ? extrafields[0].innerText : "";
-                        if (dueDate.innerText === date && status !== "IN QA" && status !== "REVIEW" && status !== "QA READY") {
+                        if (dueDate.innerText === date && status !== "Closed" && status !== "Requires Acceptance") {
                             item.style.backgroundColor = level;
                         } else {
                             if (dueDate.innerText === date) {
