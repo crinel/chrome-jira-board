@@ -20,6 +20,8 @@
 - **Load unpacked** Extension
 - Right click to see results
 - When new sprint is started use "Settings".
+  - Date format is YYYY-MM-DD
+  - URL must be in https://jira.com/secure/RapidBoard.jspa?rapidView=1234 format (don't include other quickFilters parameters)
 
 ## Dev Only
 

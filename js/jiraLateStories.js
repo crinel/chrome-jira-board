@@ -30,8 +30,9 @@ function viewStories(daylist) {
         }
     });
 
-    if (document.getElementById("ghx-detail-view")) {
-        document.getElementById("ghx-detail-view").remove();
+    const detailsView = document.getElementById("ghx-detail-view");
+    if (detailsView) {
+        detailsView.remove();
     }
 
     function colorTable(date, level) {
@@ -87,7 +88,7 @@ chrome.storage.sync.get(["sprintStartDate", "boardUrl"], function (result) {
         alert("Go to Settings first time.");
         return;
     }
-    if (window.location.href !== result.boardUrl) {
+    if (!window.location.href.startsWith(result.boardUrl)) {
         console.info("location", window.location.href);
         window.open(result.boardUrl);
         return;

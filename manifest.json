@@ -1,6 +1,6 @@
 {
     "name": "Jira Late Stories on board",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "manifest_version": 2,
     "description": "See late stories on jira board",
     "background": {
