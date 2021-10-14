@@ -1,5 +1,12 @@
 var contextMenus = {};
 
+// execute script when using Ctrl+Shift+L
+chrome.browserAction.onClicked.addListener(tab => {
+    chrome.tabs.executeScript(tab.id, {
+        file: "js/jiraLateStories.js"
+    });
+});
+
 contextMenus.createJiraLateStories = chrome.contextMenus.create(
     {
         title: "Jira Late Stories on Board",
