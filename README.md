@@ -7,6 +7,9 @@
 - It will open your Board if not opened
 - When the board is already open View highlights will highlight cards 
 
+
+- CTRL + SHIFT + L - can be used to trigger same action as View highlights
+
 ## Results
 
 ![Usage](screens/usage.jpg)
