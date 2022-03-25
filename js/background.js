@@ -20,7 +20,7 @@ contextMenus.createJiraLateStories = chrome.contextMenus.create(
 );
 
 chrome.contextMenus.create({
-  title: "🟨 View highlights",
+  title: "🟨 Highlights (Ctrl + Shift + L)",
   id: "view",
   parentId: contextMenus.createJiraLateStories
 });
