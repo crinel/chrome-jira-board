@@ -1,4 +1,4 @@
-# Chorme extension to mark **Late** stories on Jira Board
+# Chrome extension to mark **Late** stories on Jira Board
 
 ## Usage
 
