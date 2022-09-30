@@ -39,7 +39,7 @@ function viewStories(daylist) {
     //console.log("date and level ", date, level);
 
     document.querySelectorAll(".ghx-columns .ghx-issue").forEach(item => {
-      var extrafields = item.querySelectorAll(".ghx-extra-field-content");
+      var extrafields = item.querySelectorAll(".ghx-extra-fields .ghx-extra-field-row");
       if (typeof extrafields !== "undefined") {
         var dueDate = extrafields[1];
 
@@ -110,6 +110,9 @@ chrome.storage.sync.get(["sprintStartDate", "sprintDays", "boardUrl"], function 
       // TODO auto update sprintStartDate = sprintEndDate;
       alert(`Sprint ended on ${format(sprintEndDate)}. Use settings to Update sprint Start Date...`);
     }
+
+    document.querySelectorAll(".ghx-column-headers li:last-child")[0].remove();
+    document.querySelectorAll(".ghx-columns li:last-child")[0].remove();
 
     const days = getDaysArray(sprintStartDate, today);
     viewStories(days);
